@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElderEase Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <!-- Title Section (Separated from container) -->
+    <div class="title-section">
+        <div class="logo">
+            <img src="ease.png" alt="ElderEase Logo" id="logo-img" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSJ3aGl0ZSIvPgo8dGV4dCB4PSI0MCIgeT0iNDUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iYmxhY2siPkVFPC90ZXh0Pgo8L3N2Zz4K'">
+        </div>
+        <h1 class="app-title">ElderEase</h1>
+        <p class="app-subtitle">Digital Confidence for Seniors</p>
+    </div>
+    
+    <!-- Sign In Container -->
+    <div class="container">
+        <div class="right-panel">
+            <h1>Sign In</h1>
+
+            <div class="auth-method-tabs">
+                <div class="auth-tab active" data-tab="email">Email Login</div>
+                <div class="auth-tab" data-tab="qr">QR Code Login</div>
+            </div>
+
+            <div class="auth-content active" id="emailAuth">
+                <form id="emailLoginForm">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="Enter your password" required>
+                    </div>
+                    
+                    <!-- User Agreement Checkbox -->
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="userAgreement" required>
+                        <label for="userAgreement">I agree to the <span class="user-agreement-link" id="showAgreement">User Agreement</span></label>
+                    </div>
+                    
+                    <button type="submit" class="btn" id="signInBtn" disabled>Sign In</button>
+                </form>
+                
+                <div class="links">
+                    <a href="register.html">Create account</a>
+                    <a href="forgot-password.html">Forgot password?</a>
+                </div>
+            </div>
+
+            <div class="auth-content" id="qrAuth">
+                <div class="qr-scan-container">
+                    <p><strong>Hold your QR code steady in the frame below</strong></p>
+                    <p style="font-size: 14px; color: #666; margin-bottom: 15px;">Scanner will auto-focus and validate within 3 seconds</p>
+                    <div class="focus-frame" id="camera-container">
+                        <video id="camera-view" playsinline></video>
+                        <div class="scanning-overlay">
+                            <div class="scanning-line"></div>
+                        </div>
+                        <i class="fas fa-camera" id="camera-icon"></i>
+                    </div>
+                    <div id="scanner-status">Click the camera icon to start scanning</div>
+                    
+                    <div class="permission-request" id="permissionRequest">
+                        <p>Camera access is required for QR scanning</p>
+                        <button class="permission-btn" id="enableCamera">Enable Camera</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapsible-section">
+                <button class="collapsible">How to Make an ElderEase Account</button>
+                <div class="collapsible-content">
+                    <h3 style="margin: 15px 0 10px; font-size: 16px;">Steps to Create an Account:</h3>
+                    <ol>
+                        <li>Click on "Create account" link above</li>
+                        <li>Fill in your personal information</li>
+                        <li>Verify your email address</li>
+                        <li>Set up your profile</li>
+                        <li>Start using ElderEase!</li>
+                    </ol>
+                    <div class="video-container">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Video tutorial</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Agreement Modal -->
+    <div class="modal" id="agreementModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>User Agreement</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="agreement-text">
+                <p>Last Updated: September 4, 2025</p>
+                
+                <h3>1. Acceptance of Terms</h3>
+                <p>By accessing or using the ElderEase platform, you agree to be bound by these Terms of Service and our Privacy Policy.</p>
+                
+                <h3>2. Description of Service</h3>
+                <p>ElderEase provides a digital platform designed to help seniors navigate technology with confidence, offering simplified interfaces, guided tutorials, and support resources.</p>
+                
+                <h3>3. User Responsibilities</h3>
+                <p>You agree to provide accurate information when creating an account and to keep your login credentials secure. You are responsible for all activities that occur under your account.</p>
+                
+                <h3>4. Privacy</h3>
+                <p>Your privacy is important to us. Please review our Privacy Policy to understand how we collect, use, and protect your personal information.</p>
+                
+                <h3>5. Intellectual Property</h3>
+                <p>All content included on the ElderEase platform, such as text, graphics, logos, and software, is the property of ElderEase or its content suppliers and protected by intellectual property laws.</p>
+                
+                <h3>6. Limitation of Liability</h3>
+                <p>ElderEase shall not be liable for any indirect, incidental, special, consequential or punitive damages resulting from your use of or inability to use the service.</p>
+                
+                <h3>7. Changes to Terms</h3>
+                <p>We may modify these terms at any time. We will provide notice of significant changes through our platform or via email.</p>
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn cancel">Cancel</button>
+                <button class="modal-btn agree">I Agree</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
